@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortran Jenga Quiz Time</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div class="main-title">FORTRAN JENGA QUIZ TIME</div>
+
+    <div class="game-container">
+        <div id="team-modal" class="modal-overlay">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Choose Your Team</h2>
+            <div class="team-btns">
+                <div class="team-box">
+                    <input type="text" id="name-red" class="team-name-input" value="RED TEAM">
+                    <button class="team-select-btn red-btn" onclick="selectTeam('red')">SELECT</button>
+                </div>
+                <div class="team-box">
+                    <input type="text" id="name-blue" class="team-name-input" value="BLUE TEAM">
+                    <button class="team-select-btn blue-btn" onclick="selectTeam('blue')">SELECT</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="feedback-overlay">
+            <div class="popup-text" id="feedback-msg">CORRECT</div>
+            <div class="reveal-text" id="feedback-reveal"></div>
+            <button class="btn-submit" onclick="closeFeedback()" style="background: white; color: var(--bronze)">Next Turn</button>
+        </div>
+
+        <div class="scoreboard">
+            <div class="team-display">
+                <span id="label-red" class="team-label" style="color: var(--red-team);">RED TEAM</span>
+                <span class="score-val" id="score-red">0</span>
+            </div>
+            <div id="active-team-indicator" style="font-weight: 900; font-size: 1.8rem; align-self: center; padding: 12px 25px; border-radius: 15px; border: 3px solid var(--bronze)">PICK A TEAM</div>
+            <div class="team-display">
+                <span id="label-blue" class="team-label" style="color: var(--blue-team);">BLUE TEAM</span>
+                <span class="score-val" id="score-blue">0</span>
+            </div>
+        </div>
+
+        <div id="view-input" class="screen active">
+            <h2 id="turn-prompt" style="font-size: 2.2rem;">Ready?</h2>
+            <br>
+            <input type="number" id="q-num-input" class="cozy-input" style="width: 180px" placeholder="#" onkeydown="if(event.key === 'Enter') startQuestion()">
+            <button class="btn-submit" onclick="startQuestion()">START</button>
+        </div>
+
+        <div id="view-quiz" class="screen">
+            <div class="timer-badge" id="timer-display">30</div>
+            <img id="q-image" class="question-image" src="" alt="Quiz Image">
+            <div class="question-text" id="q-text">Question?</div>
+            <div id="mcq-area" class="options-grid" style="display: none;"></div>
+            <div id="input-area" style="display: none; width: 100%;">
+                <input type="text" id="ans-input" class="cozy-input" placeholder="Type answer..." autocomplete="off" onkeydown="if(event.key === 'Enter') checkInputAnswer()">
+                <br>
+                <button class="btn-submit" onclick="checkInputAnswer()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/script.js">
+
+    </script>
+</body>
+</html>
